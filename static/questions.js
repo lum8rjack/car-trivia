@@ -45,18 +45,31 @@ function parseQuestions(arr) {
 		d.innerHTML += n + ". " + arr["results"][i].question;
 		
 		if (type == "multiple") {
+			incorrect_answers = arr["results"][i]["incorrect_answers"];
+			possible_answers = incorrect_answers.concat(arr["results"][i]["correct_answer"]);
+			possible_answers.sort( () => .5 - Math.random() );
 			d.innerHTML += "<ul>";
-			d.innerHTML += "<b><li>" + arr["results"][i].correct_answer + "</li></b>";
-			for(j = 0; j < arr["results"][i]["incorrect_answers"].length; j++) {
-				d.innerHTML += "<li>" + arr["results"][i]["incorrect_answers"][j] + "</li>";
+			for(j = 0; j < possible_answers.length; j++) {
+				d.innerHTML += "<li>" + possible_answers[j] + "</li>";
 			}
+			d.innerHTML += "<br><button onclick='showAnswer(" + i + ")'>Show Answer</button>";
 			d.innerHTML += "</ul>";
 		} else {
-			d.innerHTML += " <b>[" + arr["results"][i].correct_answer + "]</b>";
+			d.innerHTML += "<br><button onclick='showAnswer(" + i + ")'>Show Answer</button>";
 		}
+		d.innerHTML += "<div id='questionAnswer" + i + "' style='display: none;'>" + arr["results"][i].correct_answer + "</div>";
 		
 		d.innerHTML += "</p></td></tr><br>";
 
 	}
 
+}
+
+function showAnswer(question_number) {
+  var x = document.getElementById("questionAnswer" + question_number);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }
