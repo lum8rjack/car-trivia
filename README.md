@@ -1,2 +1,8 @@
 # car-trivia
-Simple web app that pulls trivia questions from Open Trivia DB
+
+## Overview
+Simple web app that pulls trivia questions from [Open Trivia DB](https://opentdb.com/)
+
+## Play
+You can test the game by going to https://car-trivia.herokuapp.com/
+
