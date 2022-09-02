@@ -2,6 +2,9 @@ NAME := carTrivia
 BUILD := go build -ldflags "-s -w" -trimpath
 OUTPUT := releases
 
+default:
+	$(BUILD) -o $(OUTPUT)/$(NAME)
+
 clean:
 	rm releases/*
 
