@@ -1,0 +1,20 @@
+html,
+body {
+  height: 100%;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(24 24 27);
+}
+
+
+.selectionDiv {
+    width: 350px;
+}
+
+.questionDiv {
+    width: 350px;
+}
